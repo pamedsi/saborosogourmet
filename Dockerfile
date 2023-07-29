@@ -7,8 +7,7 @@ COPY . ./
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install -y openjdk-17-jdk
-RUN apt-get install -y maven
 
 EXPOSE 8080
 
-CMD ["mvn", "spring-boot:run"]
+CMD ["java", "-jar",  "./target/saborosogourmet-0.0.1-SNAPSHOT.jar"]

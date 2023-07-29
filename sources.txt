@@ -1,0 +1,4 @@
+./src/main/java/patrickmelo/saborosogourmet/SaborosogourmetApplication.java
+./src/main/java/patrickmelo/saborosogourmet/dtos/Message.java
+./src/main/java/patrickmelo/saborosogourmet/controllers/Hello.java
+./src/test/java/patrickmelo/saborosogourmet/SaborosogourmetApplicationTests.java
