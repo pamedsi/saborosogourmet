@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import patrickmelo.saborosogourmet.dtos.Message;
 @RestController
+@CrossOrigin (origins = "http://localhost:4200")
 public class Hello {
     @GetMapping(value = "/hello")
     public ResponseEntity<?> hello () {
