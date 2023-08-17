@@ -37,7 +37,7 @@ public class Dish {
     public Dish(DishDTO dishDTO) {
         this.identifier = UUID.randomUUID().toString();
         this.title = dishDTO.title();
-        this.dishSize = DishSize.valueOf(dishDTO.dishSize());
+        this.dishSize = DishSize.valueOf(dishDTO.dishSize().toUpperCase());
         this.price = dishDTO.price().setScale(2 , RoundingMode.HALF_UP);
         this.pic = dishDTO.pic();
         if (dishDTO.inStock() == null) this.inStock = true;

@@ -21,12 +21,11 @@ public class DishController {
     }
     @GetMapping(value = "/get-dishes")
     public ResponseEntity <?> seeDishes() {
-        return null;
+        return ResponseEntity.ok(dishService.getAllDishes());
     }
     @PostMapping(value = "/insert-dish")
     public ResponseEntity <?> insertDish(@RequestBody DishDTO dish) {
-        Dish newDish = new Dish(dish);
-        dishService.saveDish(newDish);
+        dishService.saveDish(dish);
         return ResponseEntity.ok(new Message("Prato salvo no banco de dados!"));
     }
     @PutMapping(value = "/edit-dish")
