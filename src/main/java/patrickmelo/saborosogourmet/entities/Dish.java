@@ -27,7 +27,7 @@ public class Dish {
     private DishSize dishSize;
     @Column
     private BigDecimal price;
-    @Column
+    @Column (length = 2000)
     private String pic;
     @Column
     private Boolean inStock;

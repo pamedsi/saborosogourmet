@@ -26,8 +26,8 @@ public class DishController {
     @PostMapping(value = "/insert-dish")
     public ResponseEntity <?> insertDish(@RequestBody DishDTO dish) {
         Dish newDish = new Dish(dish);
-        System.out.println(newDish);
-        return ResponseEntity.ok(newDish);
+        dishService.saveDish(newDish);
+        return ResponseEntity.ok(new Message("Prato salvo no banco de dados!"));
     }
     @PutMapping(value = "/edit-dish")
     public ResponseEntity <?> editDish() {

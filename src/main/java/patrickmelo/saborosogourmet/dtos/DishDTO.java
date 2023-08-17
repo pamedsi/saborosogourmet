@@ -1,5 +1,6 @@
 package patrickmelo.saborosogourmet.dtos;
 import jakarta.validation.constraints.NotBlank;
+import jdk.jfr.BooleanFlag;
 import org.springframework.format.annotation.NumberFormat;
 import patrickmelo.saborosogourmet.validations.ValidDishSize;
 
@@ -14,6 +15,7 @@ public record DishDTO (
         BigDecimal price,
         @NotBlank
         String pic,
+        @BooleanFlag
         Boolean inStock
 )
 {}
