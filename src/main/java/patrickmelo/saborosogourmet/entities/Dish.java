@@ -1,7 +1,9 @@
 package patrickmelo.saborosogourmet.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import patrickmelo.saborosogourmet.dtos.DishDTO;
 import patrickmelo.saborosogourmet.models.DishSize;
 
 import java.math.BigDecimal;
@@ -11,9 +13,10 @@ import java.util.UUID;
 @Table
 @Entity
 @NoArgsConstructor
+@Getter
 public class Dish {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (updatable = false)
     private Long id;
     @Column (updatable = false, unique = true, nullable = false)
@@ -31,13 +34,14 @@ public class Dish {
     @Column
     private LocalDateTime createdAt;
 
-    public Dish(String title, DishSize dishSize, BigDecimal price, String pic, Boolean inStock) {
+    public Dish(DishDTO dishDTO) {
         this.identifier = UUID.randomUUID().toString();
-        this.title = title;
-        this.dishSize = dishSize;
-        this.price = price.setScale(2 , RoundingMode.HALF_UP);
-        this.pic = pic;
-        this.inStock = inStock;
+        this.title = dishDTO.title();
+        this.dishSize = DishSize.valueOf(dishDTO.dishSize());
+        this.price = dishDTO.price().setScale(2 , RoundingMode.HALF_UP);
+        this.pic = dishDTO.pic();
+        if (dishDTO.inStock() == null) this.inStock = true;
+        else this.inStock = dishDTO.inStock();
         this.createdAt = LocalDateTime.now();
     }
 }
